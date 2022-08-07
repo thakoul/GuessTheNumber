@@ -9,8 +9,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap");
+    </style>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="js/script.js"></script>
   <title>Μαντέψτε τον αριθμό</title>
 </head>
 
@@ -21,15 +23,12 @@
     </header>
     <article>
       <form class="number-choice-form" action="index.php" method="post">
-        <label for="typednumber">Επιλέξτε έναν αριθμό (1 έως 3):</label>
-        <input type="number" id="typednumber" name="typednumber" min="1" max="1" />
+        <label for="typednumber">Επιλέξτε έναν αριθμό (1 έως 5):</label>
+        <input type="number" id="typednumber" name="typednumber" min="1" max="5" />
         <input class="submit-button" type="submit" name="submit" value="Υποβολή" />
       </form>
+      <div class="msg-space"><p class="msg-empty"><?php checkGenerateCompare() ?></p></div>
     </article>
-
-    <?php
-      check();
-    ?>
 
     <div class="currentscore">
 
