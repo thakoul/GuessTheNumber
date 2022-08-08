@@ -9,45 +9,42 @@ function startSessionCheckScores(){
 
 }
 
+function checkIfInputIsEmpty(){
+  if ($_POST['typednumber']===""){
+    $_SESSION['message']="Εισάγετε ένα νούμερο.";
+    echo $_SESSION['message'];
+  } else {
+    unset ($_SESSION['message']);
+  }
+}
+
+function generateRandomNumber(){
+  $min = 1;
+  $max = 5;
+  $randomNumber = rand($min,$max);
+  return $randomNumber;
+}
+
 function checkGenerateCompare(){
 
   //Τσεκάρει αν έχει γίνει submit η φόρμα
   if (isset($_POST['submit'])) {
 
-    $typedNumber = $_POST['typednumber'];
+    checkIfInputIsEmpty();
 
-    //Αν μείνει κενό εμφανίζεται μήνυμα
-    if ($typedNumber==="") {
-      $_SESSION['message']="Εισάγετε ένα νούμερο.";
-      echo $_SESSION['message'];
+    $randomNumber = generateRandomNumber();
+
+    settype($_POST['typednumber'], "integer");
+    
+    if ($randomNumber === $_POST['typednumber']){
+      $_SESSION['current_score'] += 1;
+    } else if ($randomNumber !== $_POST['typednumber']){
+
+        if ($_SESSION['current_score']>$_SESSION['high_score']){
+          $_SESSION['high_score'] = $_SESSION['current_score'];
+        }
+        
       $_SESSION['current_score'] = 0;
-    } else { 
-      unset ($_SESSION['message']);
-      //αν επιλεχθεί αριθμός η εκτέλεση συνεχίζεται κανονικά
-      
-      //επιλογή τυχαίου αριθμού από τον υπολογιστή
-      $min = 1;
-      $max = 5;
-      $randomNumber = rand($min, $max);
-
-      //μετατροπή από κείμενο σε integer
-      settype($typedNumber, "integer");
-
-      $highScore = $_SESSION['high_score'];
-      
-      //Αν ο αριθμός που επιλέξαμε είναι ίδιος με τον τυχαίο του υπολογιστή τότε προστίθεται ένας πόντος στο σκορ μας      
-      if ($randomNumber === $typedNumber) {
-        $currentScore = $_SESSION['current_score'] += 1;
-
-        //Αν το τρέχον σκορ είναι μεγαλύτερο από το υψηλό σκορ τότε παίρνει τη θέση του.
-        if ($currentScore > $highScore) {
-        $_SESSION['high_score'] = $currentScore;
-        }
-
-      //Αν ο αριθμός που επιλέξαμε είναι διαφορετικός από τον τυχαίο του υπολογιστή τότε το τρέχον σκορ μηδενίζεται  
-      } elseif ($randomNumber !== $typedNumber) {
-          $_SESSION['current_score'] = 0;
-        }
     }
 
   }
