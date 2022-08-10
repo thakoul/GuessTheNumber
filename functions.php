@@ -40,6 +40,7 @@ function checkGenerateCompare(){
       $_SESSION['current_score'] += 1;
     } else if ($randomNumber !== $_POST['typednumber']){
 
+        //τσεκάρει αν το τωρινό σκορ είναι μεγαλύτερο από το υψηλό και αν είναι τότε παίρνει την θέση του.
         if ($_SESSION['current_score']>$_SESSION['high_score']){
           $_SESSION['high_score'] = $_SESSION['current_score'];
         }

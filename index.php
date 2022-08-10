@@ -9,9 +9,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap");
-    </style>
   <link rel="stylesheet" href="css/style.css" />
   <title>Μαντέψτε τον αριθμό</title>
 </head>
@@ -27,7 +24,7 @@
         <input type="number" id="typednumber" name="typednumber" min="1" max="5" />
         <input class="submit-button" type="submit" name="submit" value="Υποβολή" />
       </form>
-      <div class="msg-space"><p class="msg-empty"><?php checkGenerateCompare() ?></p></div>
+      <div><p class="msg-empty"><?php checkGenerateCompare() ?></p></div>
     </article>
 
     <div class="currentscore">

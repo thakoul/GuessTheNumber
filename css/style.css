@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +18,11 @@ body {
   margin: 10px auto 0 auto;
 }
 
+.number-choice-form {
+  display: flex;
+  align-items: center;
+}
+
 .no-current-score,
 .your-current-score,
 .no-high-score,
@@ -24,15 +31,13 @@ body {
   margin-left: 10px;
 }
 
-.number-choice-form {
+.msg-space {
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 .msg-space {
   height: 20px;
-  margin-bottom: 10px;
-  margin-left: 10px;
 }
 
 .currentscore,
@@ -68,7 +73,7 @@ body {
 header {
   border-top: 4px solid #444;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background-color: #f7ecde;
 }
 
